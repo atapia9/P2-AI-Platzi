@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Engineering: El Arte de Hablar con la IA - Infografía Educativa</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f1f5f9; color: #1e293b; }
+
+  .infografia { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #581c87, #a855f7); color: white; padding: 48px 40px 40px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.08); }
+  .header::after { content: ''; position: absolute; bottom: -80px; left: -30px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+  .header-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .header h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 12px; position: relative; z-index: 1; }
+  .header .subtitulo { font-size: 1.1rem; opacity: 0.9; position: relative; z-index: 1; }
+  .header-meta { margin-top: 24px; font-size: 0.8rem; opacity: 0.7; position: relative; z-index: 1; }
+
+  /* RESUMEN */
+  .resumen { background: #f3e8ff; border-left: 5px solid #a855f7; padding: 24px 32px; margin: 0; font-size: 1.05rem; line-height: 1.7; color: #334155; }
+
+  /* SECCIONES */
+  .seccion { padding: 36px 40px; border-bottom: 1px solid #f1f5f9; }
+  .seccion-titulo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: #7e22ce; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .seccion-titulo::after { content: ''; flex: 1; height: 2px; background: #f3e8ff; }
+
+  /* CONCEPTOS CLAVE */
+  .conceptos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .concepto-card { display: flex; gap: 14px; align-items: flex-start; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; transition: transform 0.2s; }
+  .concepto-card:hover { transform: translateY(-2px); border-color: #a855f7; }
+  .concepto-icono { font-size: 2rem; flex-shrink: 0; }
+  .concepto-contenido h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+  .concepto-contenido p { font-size: 0.85rem; color: #64748b; line-height: 1.5; }
+
+  /* ESTADÍSTICAS */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stat-card { text-align: center; background: linear-gradient(135deg, #581c87, #a855f7); color: white; border-radius: 16px; padding: 24px 16px; }
+  .stat-valor { font-size: 2.5rem; font-weight: 900; display: block; margin-bottom: 8px; }
+  .stat-desc { font-size: 0.85rem; opacity: 0.95; font-weight: 600; margin-bottom: 6px; }
+  .stat-fuente { font-size: 0.72rem; opacity: 0.7; }
+
+  /* PASOS / TIPS */
+  .pasos-lista { display: flex; flex-direction: column; gap: 12px; }
+  .paso-item { display: flex; gap: 16px; align-items: flex-start; }
+  .paso-numero { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #581c87, #a855f7); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0; margin-top: 2px; }
+  .paso-contenido { background: #f8fafc; border-radius: 10px; padding: 12px 16px; flex: 1; border: 1px solid #e2e8f0; }
+  .paso-contenido strong { display: block; font-size: 0.95rem; color: #1e293b; margin-bottom: 4px; }
+  .paso-contenido span { font-size: 0.85rem; color: #64748b; }
+
+  /* DATO CURIOSO */
+  .dato-curioso { background: linear-gradient(135deg, #581c87, #a855f7); color: white; border-radius: 16px; padding: 28px 32px; margin: 0 40px 36px; position: relative; overflow: hidden; }
+  .dato-curioso::before { content: '💡'; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 4rem; opacity: 0.2; }
+  .dato-curioso-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 8px; }
+  .dato-curioso-texto { font-size: 1.05rem; font-weight: 600; line-height: 1.6; }
+
+  /* RECURSOS */
+  .recursos-lista { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .recurso-item { background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 4px; }
+  .recurso-tipo { font-size: 0.75rem; color: #a855f7; font-weight: 700; text-transform: uppercase; }
+  .recurso-item strong { font-size: 0.9rem; color: #1e293b; }
+  .recurso-item span { font-size: 0.8rem; color: #64748b; }
+
+  /* CITA */
+  .cita { background: #f8fafc; border-left: 4px solid #a855f7; margin: 0 40px 36px; padding: 24px 32px; border-radius: 0 12px 12px 0; }
+  .cita-texto { font-size: 1.1rem; font-style: italic; color: #334155; line-height: 1.7; margin-bottom: 8px; }
+  .cita-autor { font-size: 0.85rem; color: #7e22ce; font-weight: 700; }
+
+  /* TAGS */
+  .tags-section { padding: 24px 40px; background: #f8fafc; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .tags-label { font-size: 0.8rem; color: #94a3b8; font-weight: 600; margin-right: 4px; }
+  .tag { background: #f3e8ff; color: #7e22ce; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+  /* FOOTER */
+  .footer { background: #1e293b; color: #94a3b8; padding: 20px 40px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer strong { color: white; }
+
+  @media (max-width: 640px) {
+    .conceptos-grid, .stats-grid, .recursos-lista { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.8rem; }
+  }
+
+  @media print {
+    body { background: white; }
+    .infografia { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="infografia">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="header-emoji">🧩</span>
+    <h1>Prompt Engineering: El Arte de Hablar con la IA</h1>
+    <p class="subtitulo">Como disenar instrucciones efectivas para modelos de lenguaje</p>
+    <p class="header-meta">Generado automáticamente el 2026-06-09 03:03 · Nivel: Intermedio</p>
+  </div>
+
+  <!-- RESUMEN -->
+  <div class="resumen">
+    El Prompt Engineering es la habilidad de disenar y optimizar instrucciones para que los modelos de lenguaje como GPT o Claude produzcan los resultados que necesitamos. No se trata de magia: es una disciplina sistematica que combina psicologia cognitiva, logica y creatividad para comunicarnos de forma precisa con sistemas de IA.
+  </div>
+
+  <!-- CONCEPTOS CLAVE -->
+  <div class="seccion">
+    <div class="seccion-titulo">🧠 Conceptos Clave</div>
+    <div class="conceptos-grid">
+      
+        <div class="concepto-card">
+            <div class="concepto-icono">🎯</div>
+            <div class="concepto-contenido">
+                <h4>Zero-Shot Prompting</h4>
+                <p>Dar instrucciones directas sin ejemplos previos. El modelo infiere que se espera solo a partir de la descripcion de la tarea.</p>
+            </div>
+        </div>
+        <div class="concepto-card">
+            <div class="concepto-icono">📖</div>
+            <div class="concepto-contenido">
+                <h4>Few-Shot Prompting</h4>
+                <p>Incluir 2-5 ejemplos en el prompt para que el modelo aprenda el patron y lo replique en casos nuevos.</p>
+            </div>
+        </div>
+        <div class="concepto-card">
+            <div class="concepto-icono">🔗</div>
+            <div class="concepto-contenido">
+                <h4>Chain of Thought</h4>
+                <p>Pedir al modelo que razone paso a paso antes de dar la respuesta. Mejora drasticamente la precision en problemas complejos.</p>
+            </div>
+        </div>
+        <div class="concepto-card">
+            <div class="concepto-icono">🎭</div>
+            <div class="concepto-contenido">
+                <h4>Role Prompting</h4>
+                <p>Asignar un rol al modelo (Eres un experto en...) para obtener respuestas mas especializadas y contextualizadas.</p>
+            </div>
+        </div>
+        <div class="concepto-card">
+            <div class="concepto-icono">🔁</div>
+            <div class="concepto-contenido">
+                <h4>Self-Consistency</h4>
+                <p>Generar multiples respuestas y seleccionar la mas frecuente o coherente, aumentando la confiabilidad del resultado.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- ESTADÍSTICAS -->
+  <div class="seccion">
+    <div class="seccion-titulo">📊 En Números</div>
+    <div class="stats-grid">
+      
+        <div class="stat-card">
+            <div class="stat-valor">63%</div>
+            <div class="stat-desc">de empresas Fortune 500 usan IA generativa</div>
+            <div class="stat-fuente">McKinsey Global Survey 2024</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-valor">10x</div>
+            <div class="stat-desc">mejora en calidad de outputs con tecnicas avanzadas de prompting</div>
+            <div class="stat-fuente">OpenAI Research</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-valor">$200K+</div>
+            <div class="stat-desc">salario promedio de Prompt Engineers senior en EE.UU.</div>
+            <div class="stat-fuente">LinkedIn Jobs Report 2024</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- PASOS / TIPS -->
+  <div class="seccion">
+    <div class="seccion-titulo">🚀 Pasos para Empezar</div>
+    <div class="pasos-lista">
+      
+        <div class="paso-item">
+            <div class="paso-numero">1</div>
+            <div class="paso-contenido">
+                <strong>Define el contexto y rol</strong>
+                <span>Empieza siempre indicando quien es el modelo y cual es su expertise. Ej: Eres un experto en marketing digital con 10 anos de experiencia.</span>
+            </div>
+        </div>
+        <div class="paso-item">
+            <div class="paso-numero">2</div>
+            <div class="paso-contenido">
+                <strong>Se especifico en la tarea</strong>
+                <span>Evita instrucciones vagas. En vez de 'escribe algo sobre X', di: escribe un articulo de 300 palabras sobre X dirigido a estudiantes universitarios.</span>
+            </div>
+        </div>
+        <div class="paso-item">
+            <div class="paso-numero">3</div>
+            <div class="paso-contenido">
+                <strong>Usa ejemplos concretos</strong>
+                <span>Incluye 2-3 ejemplos del formato o estilo esperado. Los modelos aprenden mejor con ejemplos que con descripciones abstractas.</span>
+            </div>
+        </div>
+        <div class="paso-item">
+            <div class="paso-numero">4</div>
+            <div class="paso-contenido">
+                <strong>Pide razonamiento explicito</strong>
+                <span>Agrega 'Piensa paso a paso' para tareas complejas. Reduce alucinaciones significativamente.</span>
+            </div>
+        </div>
+        <div class="paso-item">
+            <div class="paso-numero">5</div>
+            <div class="paso-contenido">
+                <strong>Itera y refina</strong>
+                <span>Trata cada prompt como un experimento. Ajusta una variable a la vez y registra que mejora los resultados.</span>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- DATO CURIOSO -->
+  <div class="dato-curioso">
+    <div class="dato-curioso-label">¿Sabías que...?</div>
+    <div class="dato-curioso-texto">Un estudio de Stanford (2024) demostro que anadir 'respiremos y pensemos paso a paso' al final de un prompt mejora la precision en matematicas hasta un 40%. Las IAs responden mejor cuando se les pide que 'piensen' antes de responder.</div>
+  </div>
+
+  <!-- RECURSOS -->
+  <div class="seccion">
+    <div class="seccion-titulo">📖 Recursos Recomendados</div>
+    <div class="recursos-lista">
+      
+        <div class="recurso-item">
+            <span class="recurso-tipo">🎓 Curso</span>
+            <strong>Prompt Engineering for Developers</strong>
+            <span>Curso gratuito de DeepLearning.AI con Andrew Ng, cubre tecnicas avanzadas con ejemplos practicos.</span>
+        </div>
+        <div class="recurso-item">
+            <span class="recurso-tipo">🛠️ Herramienta</span>
+            <strong>PromptPerfect</strong>
+            <span>Plataforma para optimizar y testear prompts automaticamente, con metricas de rendimiento.</span>
+        </div>
+        <div class="recurso-item">
+            <span class="recurso-tipo">📚 Libro</span>
+            <strong>The Art of Prompt Engineering</strong>
+            <span>Guia comprehensiva con patrones probados y casos de uso reales en produccion.</span>
+        </div>
+    </div>
+  </div>
+
+  <!-- CITA -->
+  <div class="cita">
+    <div class="cita-texto">"El lenguaje es el sistema operativo de la mente humana. Los prompts son el codigo fuente de la IA."</div>
+    <div class="cita-autor">— Andrej Karpathy, Co-fundador de OpenAI</div>
+  </div>
+
+  <!-- TAGS -->
+  <div class="tags-section">
+    <span class="tags-label">Tags:</span>
+    <span class="tag">#PromptEngineering</span> <span class="tag">#InteligenciaArtificial</span> <span class="tag">#LLM</span> <span class="tag">#ChatGPT</span> <span class="tag">#Claude</span>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Generado con <strong>Claude AI</strong> · Proyecto 2 Platzi Challenge</span>
+    <span>Tema: <strong>Prompt Engineering</strong></span>
+  </div>
+
+</div>
+</body>
+</html>
