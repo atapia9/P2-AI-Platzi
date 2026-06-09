@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────────────────────────
+# Configuración de Temas - Generador de Infografías Educativas
+# Proyecto 2 Platzi Challenge
+#
+# Uso: python generador_infografias.py --batch temas.yaml
+# ─────────────────────────────────────────────────────────────────
+
+temas:
+  # Formato simple (solo el nombre del tema)
+  - "Inteligencia Artificial Generativa"
+  - "Prompt Engineering"
+  - "Python para Data Science"
+
+  # Formato extendido (con nivel e idioma personalizado)
+  - tema: "Machine Learning desde cero"
+    nivel: principiante
+    idioma: español
+
+  - tema: "APIs REST y GraphQL"
+    nivel: intermedio
+    idioma: español
+
+  - tema: "Docker y Contenedores"
+    nivel: intermedio
+    idioma: español
+
+  - tema: "Seguridad en Aplicaciones Web"
+    nivel: avanzado
+    idioma: español
+
+  - tema: "Design Thinking para Productos Digitales"
+    nivel: principiante
+    idioma: español
