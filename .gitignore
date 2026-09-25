@@ -1,0 +1,6 @@
+# Bytecode de Python
+__pycache__/
+*.pyc
+
+# Logs de sesión del agente (pueden contener rutas locales)
+audit.jsonl
